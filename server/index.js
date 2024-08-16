@@ -9,9 +9,15 @@ import CourseRoutes from './routes/course.routes.js';
 config();
 const app = express();
 // CORS configuration
-app.options('*', cors());
 app.use(cookieParser());
 app.use(express.json());
+// CORS configuration
+app.use(cors({
+    origin: ["https://talentproject-react.vercel.app"], // Frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true, // Allow credentials (cookies, etc.)
+}));
+
 
 console.log(`Server is running on port ${process.env.PORT} `);
 app.use('/api/user', UserRoutes);
