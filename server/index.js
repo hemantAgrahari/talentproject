@@ -9,11 +9,11 @@ import CourseRoutes from './routes/course.routes.js';
 config();
 const app = express();
 app.use(cors(
-    (
-        origin:["https://talentproject-react.vercel.app/"],
+    {
+        origin: ["https://talentproject-react.vercel.app/"],
         methods: ["POST", "GET"],
         credentials: true
-    )
+    }
 ));
 app.use(cookieParser());
 app.use(express.json());
