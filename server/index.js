@@ -28,11 +28,7 @@ app.use('/api/user', UserRoutes);
 app.use('/api/course', CourseRoutes);
 
 app.use("*", async (req, res) => {
-    const { connection } = await mongoose.connect(`mongodb+srv://hemant11102219:
-        ${process.env.DATABASE_PASSWORD}@cluster0.ojlnq2k.mongodb.net/assignment?retryWrites=true&w=majority&appName=Cluster0`, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    });
+    const connection = await connectToDatabase();
     res.status(400).send(connection);
 });
 

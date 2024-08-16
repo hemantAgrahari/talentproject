@@ -15,6 +15,7 @@ const connectToDatabase = async () => {
         if (connection) {
             console.log(`Connected to database ${connection.host}`);
         }
+        return connection.host;
     } catch (e) {
         console.log(e);
     }
