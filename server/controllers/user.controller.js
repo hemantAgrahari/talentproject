@@ -60,3 +60,10 @@ export const login = async (req, res) => {
         res.status(500).send({ status: false, message: "Server Error" });
     }
 };
+
+export const testApi = async (req, res) => {
+    res.status(200).send({
+        status: true,
+        message: "Successfully logged in!"
+    });
+}
