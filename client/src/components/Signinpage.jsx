@@ -25,7 +25,7 @@ const SignIn = () => {
         };
 
         try {
-            const response = await axios.post('http://localhost:5050/api/user/login', payload);
+            const response = await axios.post('https://talentproject-server.vercel.app/api/user/login', payload);
 
             console.log(response.data);
             localStorage.setItem('jwtToken', response.data.token);
