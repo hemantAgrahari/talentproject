@@ -18,7 +18,7 @@ app.use('/api/user', UserRoutes);
 app.use('/api/course', CourseRoutes);
 
 app.use("*", (req, res) => {
-    res.status(400).send('Page not found!');
+    res.status(400).send(`Server is running on port ${process.env.PORT} `);
 });
 
 app.listen(`${process.env.PORT}` || 5000, async () => {
