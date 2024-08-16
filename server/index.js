@@ -13,7 +13,7 @@ app.options('*', cors());
 app.use(cookieParser());
 app.use(express.json());
 
-
+console.log(`Server is running on port ${process.env.PORT} `);
 app.use('/api/user', UserRoutes);
 app.use('/api/course', CourseRoutes);
 
