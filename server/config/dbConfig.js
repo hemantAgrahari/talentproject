@@ -5,7 +5,10 @@ mongoose.set('strictQuery', false);
 const connectToDatabase = async () => {
     try {
         const { connection } = await mongoose.connect(`mongodb+srv://hemant11102219:
-            ${process.env.DATABASE_PASSWORD}@cluster0.ojlnq2k.mongodb.net/assignment?retryWrites=true&w=majority&appName=Cluster0`);
+            ${process.env.DATABASE_PASSWORD}@cluster0.ojlnq2k.mongodb.net/assignment?retryWrites=true&w=majority&appName=Cluster0`, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
 
         // console.log(connection);
 
