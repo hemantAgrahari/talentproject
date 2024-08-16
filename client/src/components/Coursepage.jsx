@@ -12,7 +12,7 @@ export default function CoursePage() {
 
         const fetchCourses = async () => {
             try {
-                const response = await axios.get('http://localhost:5050/api/course/coursedetails');
+                const response = await axios.get('https://talentproject-server.vercel.app/api/course/coursedetails');
                 setCourses(response.data);
                 console.log(response.data);
             } catch (err) {
