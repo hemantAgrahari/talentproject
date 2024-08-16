@@ -18,8 +18,8 @@ const GoogleSignUp = () => {
         const registerUser = async () => {
             if (JSON.stringify(payLoad) !== "{}") {
                 try {
-                    const response = await axios.post('http://localhost:5050/api/user/register', payLoad);
-                    console.log("his is response from backend", response);
+                    const response = await axios.post('https://talentproject-server.vercel.app/api/user/register', payLoad);
+                    console.log("this is response from backend", response);
 
                     if (response.data.value === true) {
                         navigate('/course');
