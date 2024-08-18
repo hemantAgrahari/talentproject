@@ -33,6 +33,7 @@ const Register = () => {
         console.log('Password:', password);
 
         try {
+            console.log("payload before hitting API", payload);
             const response = await axios.post('https://talentproject-server.vercel.app/api/user/register', payload);
             console.log(response);
             // return;
