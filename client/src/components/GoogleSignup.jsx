@@ -26,7 +26,11 @@ const GoogleSignUp = () => {
                     if (response.data.value === true) {
                         navigate('/course');
                         console.log(response.data.message);
-                    } else {
+                    } else if (response.data.value === true) {
+                        console.log("direct signin for the already present user")
+                        navigate('/course');
+                    }
+                    else {
                         console.log(response.data.message);
                         console.error('response.data.value is false');
                     }
@@ -35,7 +39,7 @@ const GoogleSignUp = () => {
                 }
 
 
-                // setPayLoad({}); 
+                setPayLoad({});
             }
 
         };
