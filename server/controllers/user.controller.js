@@ -10,10 +10,10 @@ export const register = async (req, res) => {
         if (result === null) {
             userData.password = await bcrypt.hash(userData.password, 10);
             await User.create(userData);
-            res.status(201).send({ value: false, message: 'Successfully registered!' });
+            res.status(201).send({ value: true, message: 'Successfully registered!' });
         } else {
             res.status(409).send({
-                value: true,
+                value: false,
                 message: "User Already exists!"
             });
         }

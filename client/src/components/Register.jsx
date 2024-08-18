@@ -39,9 +39,11 @@ const Register = () => {
             // return;
             // console.log(response.status);
             if (response.data.value === true) {
+                console.log(response.data.message);
                 navigate('/course');
             }
             else {
+                console.log(response.data.message);
                 setMessage('User Already exists!, Click here to Sign in');
                 // navigate('/signin');
             }

@@ -25,7 +25,9 @@ const GoogleSignUp = () => {
 
                     if (response.data.value === true) {
                         navigate('/course');
+                        console.log(response.data.message);
                     } else {
+                        console.log(response.data.message);
                         console.error('response.data.value is false');
                     }
                 } catch (error) {
