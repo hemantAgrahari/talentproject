@@ -12,7 +12,7 @@ export const register = async (req, res) => {
             await User.create(userData);
             res.status(201).send({ value: true, message: 'Successfully registered!' });
         } else {
-            res.status(409).send({
+            res.status(201).send({
                 value: false,
                 message: "User Already exists!"
             });
