@@ -8,26 +8,33 @@ import { useNavigate } from 'react-router-dom';
 
 const GoogleSignUp = () => {
 
-    const [payLoad, setPayLoad] = useState({});
+    const [payLoad1, setPayLoad1] = useState({});
+    const [payLoad2, setPayLoad2] = useState({});
     const navigate = useNavigate();
 
 
-    console.log("this is payload", payLoad);
+    console.log("this is payload1", payLoad1);
 
     useEffect(() => {
         const registerUser = async () => {
-            if (JSON.stringify(payLoad) !== "{}") {
+            if (JSON.stringify(payLoad1) !== "{}") {
                 try {
 
                     console.log("this is response before register api hit");
-                    const response = await axios.post('https://talentproject-server.vercel.app/api/user/register', payLoad);
+                    const response = await axios.post('https://talentproject-server.vercel.app/api/user/register', payLoad1);
                     console.log("this is response from backend", response);
 
                     if (response.data.value === true) {
                         navigate('/course');
                         console.log(response.data.message);
                     } else if (response.data.value === false) {
+
+
                         console.log("direct signin for the already present user")
+                        const response = await axios.post('https://talentproject-server.vercel.app/api/user/login', payLoad2);
+
+                        console.log(response.data);
+                        localStorage.setItem('jwtToken', response.data.token);
                         navigate('/course');
                     }
                     else {
@@ -39,13 +46,14 @@ const GoogleSignUp = () => {
                 }
 
 
-                setPayLoad({});
+                setPayLoad1({});
+                setPayLoad2({});
             }
 
         };
 
         registerUser();
-    }, [payLoad, navigate]);
+    }, [payLoad1, navigate, payLoad2]);
 
 
     return (
@@ -59,13 +67,18 @@ const GoogleSignUp = () => {
                     // console.log(credentialResponseDecoded.email, credentialResponseDecoded.name, credentialResponseDecoded.sub);
 
 
-                    setPayLoad({
+                    setPayLoad1({
                         name: credentialResponseDecoded.name,
                         email: credentialResponseDecoded.email,
                         password: credentialResponseDecoded.sub
                     });
 
-                    console.log(payLoad)
+                    setPayLoad2({
+                        email: credentialResponseDecoded.email,
+                        password: credentialResponseDecoded.sub
+                    });
+
+                    console.log(payLoad1, payLoad2)
 
                 }}
                 onError={() => {
