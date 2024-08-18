@@ -26,7 +26,7 @@ const GoogleSignUp = () => {
                     if (response.data.value === true) {
                         navigate('/course');
                         console.log(response.data.message);
-                    } else if (response.data.value === true) {
+                    } else if (response.data.value === false) {
                         console.log("direct signin for the already present user")
                         navigate('/course');
                     }
