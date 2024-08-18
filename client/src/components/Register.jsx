@@ -20,15 +20,17 @@ const Register = () => {
         event.preventDefault();
 
 
-        console.log('Name:', name);
-        console.log('Email:', email);
-        console.log('Password:', password);
+
 
         const payload = {
             name: name,
             email: email,
             password: password,
         };
+
+        console.log('Name:', name);
+        console.log('Email:', email);
+        console.log('Password:', password);
 
         try {
             const response = await axios.post('https://talentproject-server.vercel.app/api/user/register', payload);
