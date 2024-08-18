@@ -12,7 +12,7 @@ const GoogleSignUp = () => {
     const navigate = useNavigate();
 
 
-    // console.log("this is payload", payLoad);
+    console.log("this is payload", payLoad);
 
     useEffect(() => {
         const registerUser = async () => {
@@ -35,7 +35,7 @@ const GoogleSignUp = () => {
                 }
 
 
-                setPayLoad({}); // Reset payLoad after the call
+                // setPayLoad({}); 
             }
 
         };
